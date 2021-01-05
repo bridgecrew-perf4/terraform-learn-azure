@@ -6,28 +6,11 @@ terraform {
       version = ">= 2.26"
     }
   }
-  backend "remote" {
-    organization = "radek_pribyl"
-    workspaces {
-      name = "Tutorial-Workspace"
-    }
-  }
 }
-
 
 provider "azurerm" {
   features {}
   subscription_id = "6497b636-feb5-40bc-ba90-c255cdbfd175"
-}
-
-variable "admin_username" {
-  type = string
-  description = "Administrator user name for virtual machine"
-}
-
-variable "admin_password" {
-  type = string
-  description = "Password must meet Azure complexity requirements"
 }
 
 resource "azurerm_resource_group" "rg" {
@@ -139,8 +122,4 @@ data "azurerm_public_ip" "ip" {
   resource_group_name = azurerm_virtual_machine.vm.resource_group_name
   depends_on = [
     azurerm_virtual_machine.vm]
-}
-
-output "public_ip_address" {
-  value = data.azurerm_public_ip.ip.ip_address
 }
