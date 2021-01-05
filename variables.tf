@@ -10,7 +10,7 @@ variable "tags" {
 
   default = {
     Environment = "Terraform-Cloud"
-    Dept = "Engineering"
+    Dept = "Development"
   }
 }
 
