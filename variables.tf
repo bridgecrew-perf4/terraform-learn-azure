@@ -9,7 +9,7 @@ variable "tags" {
   type = map
 
   default = {
-    Environment = "Terraform GS"
+    Environment = "Terraform-Cloud"
     Dept = "Engineering"
   }
 }
